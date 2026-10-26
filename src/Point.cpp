@@ -3,47 +3,38 @@
 
 Point::Point()
 {
-    x = 0;
-    y = 0;
-    z = 0;
+    this->coords.push_back(0.0);
 }
 
-Point::Point(const double& x, const double& y, const double& z)
+Point::Point(const int& size)
 {
-    this->x = x;
-    this->y = y;
-    this->z = z;
+    std::vector<double> tmp(size);
+    this->coords = tmp;
+}
+
+Point::Point(const std::vector<double>& coords)
+{
+    this->coords = coords;
 }
 
 Point::~Point()
 {
 }
 
-double Point::getX(){
-    return this->x;
-}
-        
-double Point::getY(){
-    return this->y;
+std::vector<double> Point::getCoords(){
+    return this->coords;
 }
 
-double Point::getZ(){
-    return this->z;
-}
-        
-
-void Point::setX(const double& x){
-    this->x = x;
-}
-
-void Point::setY(const double& y){
-    this->y = y;
-}
-
-void Point::setZ(const double& z){
-    this->z = z;
+void Point::addCoord(const double& coord){
+    this->coords.push_back(coord);
 }
 
 void Point::toString() {
-    std::cout << "x : " << this->x << " y : " << this->y << " z : " << this->z << std::endl;
+    for (size_t i = 0; i < this->coords.size(); i++)
+    {
+        std::cout << "coordonnée " << i << " : " <<
+            this->coords[i];
+
+    }
+    
 }

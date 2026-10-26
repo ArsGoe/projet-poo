@@ -1,20 +1,19 @@
 #pragma once
 
+#include <vector>
+
 class Point
 {
     private:
-        double x, y, z;
+        std::vector<double> coords;
     public:
         Point();
-        Point(const double& x, const double& y, const double& z);
+        Point(const int& size);
+        Point(const std::vector<double>& coords);
         
-        double getX();
-        double getY();
-        double getZ();
-        
-        void setX(const double& x);
-        void setY(const double& y);
-        void setZ(const double& z);
+        std::vector<double> getCoords();
+
+        void addCoord(const double& coord);
 
         void toString();
         
